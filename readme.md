@@ -7,7 +7,7 @@ cole repo and run following command
 ECG_Project
 ```
 ## Todo
-number of peaks inthe graph and calcualte beats/min
+1 .number of peaks inthe graph and calcualte beats/min
 make to count the 
 ## Current progress
 
