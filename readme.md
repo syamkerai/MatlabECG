@@ -6,6 +6,9 @@ cole repo and run following command
 ```bash
 ECG_Project
 ```
+## Todo
+1 .number of peaks inthe graph and calcualte beats/min
+make to count the 
 ## Current progress
 Graph for sample data 1
 ![alt text](img/graph.png "Current graping output of sample data 1")
