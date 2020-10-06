@@ -10,7 +10,8 @@ ECG_Project
 1 .number of peaks inthe graph and calcualte beats/min
 make to count the 
 ## Current progress
-Graph for sample data 1
+1. Graph for sample data 1
 ![alt text](img/graph.png "Current graping output of sample data 1")
-Graph for sample data 2
+
+2. Graph for sample data 2
 ![alt text](img/graph2.png "Current graping output of sample data 2")
