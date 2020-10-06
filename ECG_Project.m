@@ -1,6 +1,7 @@
 clear all;
 clc;
 load Sample_1;
+load Sample_2;
 Threshold=1000;
 Data=Orig_Sig;
 figure(1);
