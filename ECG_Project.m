@@ -16,3 +16,6 @@ subplot(2,1,2);
 plot(Data);
 [n,m]=findpeaks(Data);
 xlim([0 3500]);
+x = 'you heart rate is below';
+disp(x);
+
