@@ -1,21 +1,18 @@
-clear all;
-clc;
-load Sample_1;
-load Sample_2;
+clear;clc;
+load Sample_7
 Threshold=1000;
 Data=Orig_Sig;
 figure(1);
-subplot(2,1,1);
+subplot(2,1,1)
 plot(Data);
-xlim([0 3500]);
-hold on;
+xlim([0 3600]);
+hold on
 plot([0,length(Data)],[Threshold,Threshold]);
-hold off;
-Data(Data<Threshold)-Threshold;
-subplot(2,1,2);
+hold off
+Data=highpass(Data,pi)
+Data(Data<Threshold)=Threshold;
+subplot(2,1,2)
 plot(Data);
 [n,m]=findpeaks(Data);
-xlim([0 3500]);
-x = 'you heart rate is below';
-disp(x);
-
+xlim([0 3600]);
+ylim([800 1500]); 
