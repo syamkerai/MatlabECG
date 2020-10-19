@@ -1,12 +1,13 @@
 clear;
 clc;
-load Sample_3;
+load Sample_1;
 
-threshold=1000;
 rawData=Orig_Sig;
 numSamples = length(rawData);
 maxValue = max(rawData);
 minValue = min(rawData);
+% threshold is 65% bewteen min and max
+threshold = minValue + ((maxValue - minValue) * 0.65);
 
 
 % render rawData
@@ -26,21 +27,23 @@ ylim([minValue maxValue]);
 hold off
 
 % only keep y values above threshold
-aboveThresholdData = rawData;
-aboveThresholdData(aboveThresholdData < threshold) = threshold;
+thresholdedData = rawData;
+thresholdedData(thresholdedData < threshold) = minValue;
+thresholdedData(thresholdedData > threshold) = maxValue;
+
 subplot(3,1,2);
-plot(aboveThresholdData);
+plot(thresholdedData);
 title('thresholded');
 xlim([0 numSamples]);
 ylim([minValue maxValue]);
 
 % count numHeartBeats as number of peaks
-[peaksY, peaksX] = findpeaks(aboveThresholdData);
+[peaksY, peaksX] = findpeaks(thresholdedData);
 subplot(3,1,3);
 plot(rawData);
 title('labelled peaks');
 hold on
-scatter(peaksX, peaksY, 'r'); 
+scatter(peaksX, rawData(peaksX), 'r'); 
 hold off
 xlim([0 numSamples]);
 ylim([minValue maxValue]);
