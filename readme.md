@@ -13,7 +13,7 @@ ECG_Project
 ## Final Output
 ### Final output after processing and calulating beats per minute
 ## Output
-![alt text](finalparta.png "Final graping output of sample data 2")
+![alt text](img/finalparta.png "Final graping output of sample data 2")
 
 ![alt text](img/heartrate.png "Current graping output of sample data 2")
 
