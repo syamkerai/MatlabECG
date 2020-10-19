@@ -5,16 +5,21 @@ load Sample_1;
 threshold=1000;
 rawData=Orig_Sig;
 numSamples = length(rawData);
+maxValue = max(rawData);
 
 % render rawData
 figure(1);
 subplot(3,1,1);
-xlim([0 numSamples]); % rawData contains 360*10s samples
 plot(rawData);
+xlim([0 numSamples]);
+ylim([0 maxValue]);
+
 
 % plot threshold line
 hold on
 plot([0, numSamples],[threshold, threshold]);
+xlim([0 numSamples]);
+ylim([0 maxValue]);
 hold off
 
 % only keep y values above threshold
@@ -22,13 +27,19 @@ aboveThresholdData = rawData;
 aboveThresholdData(aboveThresholdData < threshold) = threshold;
 subplot(3,1,2);
 plot(aboveThresholdData);
+xlim([0 numSamples]);
+ylim([0 maxValue]);
 
 % count numHeartBeats as number of peaks
-[n,m]=findpeaks(aboveThresholdData);
+[peaksY, peaksX] = findpeaks(aboveThresholdData);
 subplot(3,1,3);
-plot(0:3600,filtered)
-xlim([0 3600]);
-ylim([800 1500]);  
-numPeaks = size(n,1);
+plot(peaksX, peaksY); 
+xlim([0 numSamples]);
+ylim([0 maxValue]);
+
+numPeaks = size(peaksX, 1);
 heartRate=(numPeaks * 60) / 10; % 60s in a min, 10s of samples
 disp("Heart Rate is : " + heartRate + " Beats/Min");
+
+
+
